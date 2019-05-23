@@ -12,13 +12,12 @@ router.put('/:_id' , (req, res) => {
         return res.status(200).json(req.body);
     });
 });
-//TODO
 router.get('/:_id' , (req, res) => {
-    registerModel.updateOne( { _id: req.body._id }, req.body, (err, body) => {
+    registerModel.find( { _id: req.body._id }, req.body, (err, body) => {
         console.log(req);
         if (err) {
             console.log(err);
-            return res.status(403).json({ error: 'Erro ao atualizar usuário'});
+            return res.status(403).json({ error: 'Erro ao buscar usuário'});
         }
         return res.status(200).json(req.body);
     });
